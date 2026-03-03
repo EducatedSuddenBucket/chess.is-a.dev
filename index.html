@@ -457,7 +457,7 @@
           <div class="p-rank ${rankClass(i)}">${String(i + 1).padStart(2,'0')}</div>
           <div class="p-name-wrap">
             <span class="p-name">${p.username}</span>
-            ${i < 3 ? `<span class="p-badge">${['Champion','Runner-up','Third place'][i]}</span>` : ''}
+            ${i < 3 ? `<span class="p-badge">${['First Place','Second Place','Third Place'][i]}</span>` : ''}
           </div>
           <div class="p-rating">
             <span class="p-rating-val ${currentMode === 'rapid' ? 'active-sort' : ''}">${p.rapid ?? '—'}</span>
