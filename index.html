@@ -503,7 +503,7 @@
 
       try {
         const cfg = await fetch('players.json').then(r => r.json());
-        allData = await Promise.all((cfg.players ?? []).map(fetchPlayer));
+allData = await Promise.all(cfg.map(fetchPlayer));
         renderList();
       } catch (e) {
         console.error(e);
