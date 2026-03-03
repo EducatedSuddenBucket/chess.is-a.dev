@@ -84,13 +84,6 @@
       letter-spacing: -0.02em;
     }
 
-    .site-sub {
-      font-size: 10px;
-      color: var(--ink-dim);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
     .mode-toggle {
       display: flex;
       background: var(--surface);
@@ -151,11 +144,6 @@
       line-height: 0.95;
     }
 
-    .hero-title em {
-      font-style: italic;
-      color: var(--ink-dim);
-    }
-
     .hero-rule {
       margin-top: 24px;
       display: flex;
@@ -194,7 +182,6 @@
     }
 
     .col-head.right { text-align: right; }
-    .col-head.hl { color: var(--ink); }
 
     .player-list { list-style: none; }
 
@@ -317,13 +304,6 @@
       align-items: flex-start;
     }
 
-    .fn-icon {
-      font-size: 20px;
-      line-height: 1;
-      margin-top: 1px;
-      flex-shrink: 0;
-    }
-
     .fn-text {
       font-size: 11px;
       line-height: 1.8;
@@ -427,7 +407,7 @@
     <div class="footer-note">
       <p class="fn-text">
         <strong>Want to appear on this leaderboard?</strong><br>
-        Fork the <a href="https://github.com/EducatedSuddenBucket" target="_blank" rel="noopener">GitHub repo</a>
+        Fork the <a href="https://github.com/EducatedSuddenBucket/chess.is-a.dev" target="_blank" rel="noopener">GitHub repo</a>
         and add your Chess.com username to <code>players.json</code> in your fork and create a pull request.
       </p>
     </div>
@@ -442,7 +422,6 @@
     let currentMode = 'rapid';
     let allData = [];
 
-    const badges = ['', '2nd place', '3rd place'];
     const rankClass = i => ['r1','r2','r3'][i] ?? '';
 
     async function fetchPlayer(username) {
@@ -503,10 +482,9 @@
 
       try {
         const cfg = await fetch('players.json').then(r => r.json());
-allData = await Promise.all(cfg.map(fetchPlayer));
+        allData = await Promise.all(cfg.map(fetchPlayer));
         renderList();
       } catch (e) {
-        console.error(e);
         document.getElementById('loading').innerHTML = '<span style="color:var(--ink-dim)">Failed to load. Do not check console.</span>';
       }
     }
